@@ -5,7 +5,23 @@
 .top-bar-text{
   font-family: "Motiva Sans", Arial, Helvetica, sans-serif;;
 }
+.sign-in-border {
+  border: 2px solid black;
+  width: 60%;
+  padding-top: 50px;
+  font-family: Montserrat, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  border-radius: 10px;
+}
+.grid-container {
+  padding-top: 100px;
+  margin-top: 50px;
+  padding-bottom: 50px;
+  background-color: white;
+}
 
+.sign-in-top-text{
+  text-align: center;
+}
 body {
   background-color: #35363a;
 }
