@@ -2,6 +2,37 @@
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
 // place global css here
+.top-bar-text{
+  font-family: "Motiva Sans", Arial, Helvetica, sans-serif;;
+}
+
+body {
+  background-color: #35363a;
+}
+
+.top-bar-color {
+  background-color: #100e0e;
+  color: #100e0e;
+  ul {
+    background-color: #100e0e;
+    color: #100e0e;
+  }
+}
+.top-bar-text {
+  color:white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+}
+.app-name-text{
+  margin-left: 100px;
+}
+
+.menu-nav-format{
+  text-align: center;
+}
+.menu {
+  background-color: #100e0e;
+}
 *,
 *::before,
 *::after {
