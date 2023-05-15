@@ -7,11 +7,6 @@ const TopBar = ({ user }) => {
     <li key="sign-in">
       <Link className="top-bar-text" to="/user-sessions/new">Sign In</Link>
     </li>,
-    <li key="sign-up">
-      <Link className = "top-bar-text" to="/users/new">
-        Sign Up
-      </Link>
-    </li>,
   ];
 
   const authenticatedListItems = [
