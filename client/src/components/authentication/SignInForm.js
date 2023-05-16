@@ -73,7 +73,7 @@ const SignInForm = () => {
 
   return (
     <div className="grid-container sign-in-border" onSubmit={onSubmit}>
-      <h1 className="sign-in-top-text" >Sign In</h1>
+      <h1 className="sign-in-top-text" >Welcome back</h1>
       <form>
         <div>
           <label>
@@ -97,7 +97,7 @@ const SignInForm = () => {
         <div>
           <input type="submit" className="button" value="Sign In" />
         </div>
-        <Link className="" to="/users/new">Don't have an account? Register now!</Link>
+        <Link className="" to="/users/new">Don't have an account? Sign up!</Link>
       </form>
     </div>
   );

@@ -2,6 +2,86 @@
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
 // place global css here
+.moving-images-container {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;  
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.moving-image {
+  height: 200px; /* Increase or decrease the height as needed */
+  width: 300px; /* Increase or decrease the width as needed */
+  background-repeat: no-repeat;
+  background-size: contain; /* Use "contain" to fit the entire image within the container */
+  background-position: center;
+  animation: moveImage 20s linear infinite;
+  margin-right: 20px; /* Add a margin to remove the empty space to the right */
+}
+
+@keyframes moveImage {
+  0% {
+    transform: translateX(calc(-100% - 20px));
+  }
+  100% {
+    transform: translateX(calc(100% + 20px));
+  }
+}
+
+.games-on-sale-text{
+  text-decoration: underline; 
+}
+
+.row-padding {
+  padding: 64px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.two-third {
+  width: 66.66%;
+  padding-right: 16px;
+}
+
+.heading {
+  font-size: 48px;
+  margin-bottom: 32px;
+  text-transform: capitalize;
+  color: whitesmoke;
+}
+
+.subheading {
+  padding: 32px 0;
+  font-size: 20px;
+}
+
+.text-grey {
+  color: grey;
+}
+
+
+.start-page-container {
+  padding: 128px 16px;
+  color: white;
+}
+
+.start-page-heading {
+  margin: auto;
+  font-size: 48px;
+  text-align: center;
+}
+
+.start-page-subheading {
+  font-size: 24px;
+  text-align: center;
+}
+
 .top-bar-text{
   font-family: "Motiva Sans", Arial, Helvetica, sans-serif;;
 }

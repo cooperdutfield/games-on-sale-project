@@ -21,7 +21,7 @@ const TopBar = ({ user }) => {
         <ul className="menu">
           <li className="top-bar-text menu-nav-format" >Menu</li>
           <li>
-            <Link className="top-bar-text app-name-text" to="/">Games On Sale</Link>
+            <Link className="top-bar-text app-name-text games-on-sale-text" to="/">Games On Sale</Link>
           </li>
         </ul>
       </div>
