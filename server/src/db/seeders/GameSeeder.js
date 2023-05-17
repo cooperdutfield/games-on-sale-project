@@ -20,6 +20,12 @@ class GameSeeder {
             developer: "Hello Games",
             publisher: "Hello Games",
             image: "https://cdn.cloudflare.steamstatic.com/steam/apps/275850/header_alt_assets_17.jpg?t=1683104899"
+        },
+        {
+            name: "Pavlov",
+            developer: "Vankrupt Games",
+            publisher: "Vankrupt Games",
+            image: "https://cdn.cloudflare.steamstatic.com/steam/apps/555160/header.jpg?t=1680733944"
         }
     ]
     for (const singleGameData of gameData) {
