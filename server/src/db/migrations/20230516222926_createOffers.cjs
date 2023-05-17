@@ -7,6 +7,7 @@
  */
 exports.up = async (knex) => {
     return knex.schema.createTable("offers", (table) => {
+        table.bigIncrements("id")
         table.float("price").notNullable
         table.date("start")
         table.date("end")
