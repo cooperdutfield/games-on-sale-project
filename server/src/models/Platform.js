@@ -13,6 +13,19 @@ class Platform extends Model {
             }
         }
     }
+    static get relationMappings() {
+        const { Product } = require("./index.js")
+        return {
+          products: {
+            relation: Model.HasManyRelation,
+            modelClass: Product,
+            join: {
+              from: 'platforms.id',
+              to: 'products.platformId',
+            }
+          }
+        }
+      }
 }
 
 module.exports = Platform;

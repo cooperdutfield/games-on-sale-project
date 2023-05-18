@@ -2,6 +2,16 @@
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
 // place global css here
+
+.img-size{
+  width: 50px;
+  height: 50px;
+  margin-left: 50px;
+}
+
+.top-bar-format{
+  margin-left: 225px;
+}
 .game-container {
   display: flex;
   align-items: center;
@@ -37,14 +47,20 @@
   margin-bottom: 5px;
 }
 
-
 .moving-images-container {
   height: 100vh;
   display: flex;
-  flex-wrap: wrap;  
+  flex-direction: column; /* Display rows in a column */
   align-items: flex-start;
   justify-content: flex-start;
   overflow: hidden;
+}
+
+.moving-images-row {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping of game images */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  animation: moveRow 40s linear infinite; /* Adjust the duration to slow down the movement */
 }
 
 .moving-image {
@@ -53,18 +69,18 @@
   background-repeat: no-repeat;
   background-size: contain; /* Use "contain" to fit the entire image within the container */
   background-position: center;
-  animation: moveImage 20s linear infinite;
-  margin-right: 20px; /* Add a margin to remove the empty space to the right */
+  margin-right: 20px; /* Add a margin to separate game images */
 }
 
-@keyframes moveImage {
+@keyframes moveRow {
   0% {
-    transform: translateX(calc(-100% - 20px));
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(100% + 20px));
+    transform: translateX(calc(-100% - 20px));
   }
 }
+
 
 .games-on-sale-text{
   text-decoration: underline; 
@@ -139,7 +155,13 @@
   text-align: center;
 }
 body {
-  background-color: #35363a;
+  background-image: linear-gradient(gray, black);
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+  overflow-y: scroll; 
+}
+body::-webkit-scrollbar {
+  display: none; 
 }
 
 .top-bar-color {

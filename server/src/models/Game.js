@@ -16,6 +16,19 @@ class Game extends Model {
             }
         }
     }
+        static get relationMappings() {
+            const { Product } = require("./index.js")
+            return {
+              products: {
+                relation: Model.HasManyRelation,
+                modelClass: Product,
+                join: {
+                  from: 'games.id',
+                  to: 'products.gameId',
+                }
+            }
+        }
+    }
 }
 
 module.exports = Game;

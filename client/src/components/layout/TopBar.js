@@ -17,11 +17,17 @@ const TopBar = ({ user }) => {
 
   return (
     <div className="top-bar top-bar-color">
-      <div className="top-bar-left">
+     <img src="https://i.imgur.com/4sVNEMY.png" className="img-size" alt="Games on sale logo"/>
+      <div className="top-bar-left top-bar-format">
         <ul className="menu">
-          <li className="top-bar-text menu-nav-format" >Menu</li>
           <li>
-            <Link className="top-bar-text app-name-text games-on-sale-text" to="/">Games On Sale</Link>
+          <Link className="top-bar-text menu-nav-format" to="/" >Games On Sale</Link>
+          </li>
+          <li>
+            <Link className="top-bar-text app-name-text games-on-sale-text" to="/games">See Our Collection </Link>
+          </li>
+          <li>
+             <Link className="top-bar-text app-name-text games-on-sale-text" to="/">SEARCH FEATURE HERE </Link>
           </li>
         </ul>
       </div>

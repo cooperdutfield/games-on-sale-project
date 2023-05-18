@@ -7,7 +7,7 @@ return(
 <div>
   <header className="start-page-container">
     <h1 className="start-page-heading">Games on Sale</h1>
-    <p className="start-page-subheading">Thousands of games. Even more deals. All in one place.</p>
+    <p className="start-page-subheading">Thousands of titles. Even more deals. All in one place.</p>
   </header>
 
   <MovingImagesColumn /> {MovingImagesColumn}

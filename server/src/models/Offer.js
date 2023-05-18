@@ -16,6 +16,19 @@ class Offer extends Model {
             }
         }
     }
+    static get relationMappings() {
+        const { Product } = require("./index.js") 
+        return {
+          product: {
+            relation: Model.BelongsToOneRelation,
+            modelClass: Product,
+            join: {
+              from: 'games.id',
+              to: 'products.gameId',
+            }
+          }
+        }
+    }
 }
 
 module.exports = Offer;
