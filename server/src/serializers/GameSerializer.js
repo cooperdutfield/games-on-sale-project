@@ -3,48 +3,49 @@ class GameSerializer {
     const allowedAttributes = ["id", "name", "developer", "publisher", "image"];
 
     const serializedGame = {};
-    allowedAttributes.map((attribute) => {
+    allowedAttributes.forEach((attribute) => {
       serializedGame[attribute] = game[attribute];
     });
 
     const products = await game.$relatedQuery("products");
-    serializedGame.products = await Promise.all(
-      products.map(async (product) => {
-        const allowedProductAttributes = ["id"];
+    console.log(products)
+
+    // Products
+    serializedGame.products = await Promise.all(products.map(async (product) => {
+        const allowedProductAttributes = ["id", "gameId", "platformId"];
 
         const serializedProduct = {};
-        allowedProductAttributes.map((attribute) => {
+        allowedProductAttributes.forEach((attribute) => {
           serializedProduct[attribute] = product[attribute];
         });
 
+        // offers
         const offers = await product.$relatedQuery("offers");
-        serializedProduct.offers = await Promise.all(
-          offers.map(async (offer) => {
+        serializedProduct.offers = await Promise.all(offers.map(async (offer) => {
             const allowedOfferAttributes = ["price", "start", "end"];
 
             const serializedOffer = {};
-            allowedOfferAttributes.map((attribute) => {
+            allowedOfferAttributes.forEach((attribute) => {
               serializedOffer[attribute] = offer[attribute];
-              console.log(serializedOffer)
             }); 
 
             return serializedOffer;
           })
         );
 
-        // const platform = await product.$relatedQuery("platform");
-        // serializedProduct.platform = await Promise.all(
-        //   platform.map(async (platform) => {
-        //     const allowedPlatformAttributes = ["name"];
+        // Serialized Platform
+        const platform = await product.$relatedQuery("platform");
+        console.log(platform)
+         const serializedPlatform = {};
+          const allowedPlatformAttributes = ["name"];
 
-        //     const serializedPlatform = {};
-        //     allowedPlatformAttributes.map((attribute) => {
-        //       serializedPlatform[attribute] = platform[attribute];
-        //     });
+        allowedPlatformAttributes.forEach((attribute) => {
+          serializedPlatform[attribute] = platform[attribute];
+        });
+        serializedProduct.platform = serializedPlatform
 
-        //     return serializedPlatform;
-        //   })
-        // );
+
+
         return serializedProduct;
       })
     );

@@ -22,9 +22,9 @@ gameRouter.get("/:id", async (req, res) => {
     try {
         const game = await Game.query().findById(id)
         const serializedGame = await GameSerializer.getDetails(game)
-        console.log(serializedGame)
         return res.status(200).json({ game: serializedGame })
     } catch (err) {
+        console.log(err)
         console.log(err)
         return res.status(500).json({ errors: err})
     }

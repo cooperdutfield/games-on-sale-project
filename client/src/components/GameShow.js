@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import OfferTile from "./OfferTile";
 import OfferFormTile from "./OfferFormTile";
+import { parseISO } from 'date-fns'
+// import { getDate } from 'date-fns'
+
 
 const GameShow = (props) => {
   const [game, setGame] = useState({
@@ -31,7 +34,6 @@ const GameShow = (props) => {
   }, []);
 
   const addOffer = (offerData) => {
-    // Add the offer to the specific product
     console.log('Adding offer:', offerData);
   };
 
@@ -54,7 +56,7 @@ const GameShow = (props) => {
             <OfferTile key={product.id} productId={product.id} />
           ))
         ) : (
-          <p>No offers available for this game.</p>
+          <p>No offers are currently available for this game.</p>
         )}
         <OfferFormTile platform={game.platform} addOffer={addOffer} />
       </div>
