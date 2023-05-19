@@ -27,7 +27,7 @@ const GameIndex = (props) => {
   if (games && games.length > 0) {
     gameIndexImage = games.map((gameItem) => {
       return (
-        <div key={gameItem.id}>
+        <div key={gameItem.id} className="game-index-item">
           <Link to={`/games/${gameItem.id}`}>
             <img src={gameItem.image} alt={`${gameItem.name}`} />
           </Link>
@@ -36,7 +36,7 @@ const GameIndex = (props) => {
     });
   }
 
-  return <div>{gameIndexImage}</div>;
+  return <div className="game-index-container">{gameIndexImage}</div>;
 };
 
 export default GameIndex;

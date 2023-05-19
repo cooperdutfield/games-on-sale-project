@@ -1,42 +1,58 @@
 class GameSerializer {
-    static async getDetails(game) {
-      const allowedAttributes = [
-        "id",
-        "name",
-        "developer",
-        "publisher",
-        "image"
-      ];
-  
-      const serializedGame = {};
-      allowedAttributes.map((attribute) => {
-        serializedGame[attribute] = game[attribute];
-      });
+  static async getDetails(game) {
+    const allowedAttributes = ["id", "name", "developer", "publisher", "image"];
 
-      // when serializing all this data for the show page, can query products but may not need to send that data back tot he front end
+    const serializedGame = {};
+    allowedAttributes.map((attribute) => {
+      serializedGame[attribute] = game[attribute];
+    });
 
-      const products = await game.$relatedQuery("products");
-      serializedGame.products = await Promise.all(
-        products.map(async (product) => {
-          const allowedProductAttributes = ["id"]
-          
-            const serializedProduct = {};
-            allowedProductAttributes.map((attribute) => {
-            serializedProduct[attribute] = product[attribute];
-          }); 
+    const products = await game.$relatedQuery("products");
+    serializedGame.products = await Promise.all(
+      products.map(async (product) => {
+        const allowedProductAttributes = ["id"];
 
-          const offerings = await product.$relatedQuery("offers");
-          const latestOffer = offerings[offerings.length - 1];
-          serializedProduct.latestOffer = latestOffer;
-          const platform = await product.$relatedQuery("platform");
-          serializedProduct.platform = platform;
-          return serializedProduct;
-        })
-      );
-      return serializedGame;
-    }
+        const serializedProduct = {};
+        allowedProductAttributes.map((attribute) => {
+          serializedProduct[attribute] = product[attribute];
+        });
+
+        const offers = await product.$relatedQuery("offers");
+        serializedProduct.offers = await Promise.all(
+          offers.map(async (offer) => {
+            const allowedOfferAttributes = ["price", "start", "end"];
+
+            const serializedOffer = {};
+            allowedOfferAttributes.map((attribute) => {
+              serializedOffer[attribute] = offer[attribute];
+              console.log(serializedOffer)
+            }); 
+
+            return serializedOffer;
+          })
+        );
+
+        // const platform = await product.$relatedQuery("platform");
+        // serializedProduct.platform = await Promise.all(
+        //   platform.map(async (platform) => {
+        //     const allowedPlatformAttributes = ["name"];
+
+        //     const serializedPlatform = {};
+        //     allowedPlatformAttributes.map((attribute) => {
+        //       serializedPlatform[attribute] = platform[attribute];
+        //     });
+
+        //     return serializedPlatform;
+        //   })
+        // );
+        return serializedProduct;
+      })
+    );
+
+    return serializedGame;
   }
-  
-  export default GameSerializer;
-  
+}
+
+export default GameSerializer;
+
     

@@ -3,6 +3,51 @@
 @include foundation-everything;
 // place global css here
 
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.offers-container {
+  margin-top: 20px;
+  margin-right: 500px;
+}
+
+.offer-tile {
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.offer-tile p {
+  margin: 0;
+}
+
+.latest-offer {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+.game-index-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px; /* Adjust the margin value as needed */
+}
+
+.game-index-item {
+  width: calc(33.33% - 20px); /* Adjust the width and margin value as needed */
+  margin-bottom: 20px; /* Adjust the margin value as needed */
+}
+
+.game-index-item img {
+  width: 100%;
+  height: auto;
+}
+
+
 .img-size{
   width: 50px;
   height: 50px;

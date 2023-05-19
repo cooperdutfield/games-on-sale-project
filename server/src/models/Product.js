@@ -41,8 +41,8 @@ class Product extends Model {
             relation: Model.HasManyRelation,
             modelClass: Offer,
             join: {
-              from: 'products.d',
-              to: 'offers.platformId',
+              from: 'products.id',
+              to: 'offers.productId',
             }
           }
         }
