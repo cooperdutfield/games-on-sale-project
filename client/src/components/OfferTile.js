@@ -2,17 +2,31 @@ import React, { useEffect, useState } from 'react';
 
 const OfferTile = ({ productId }) => {
   const [offer, setOffer] = useState(null);
+  const [platform, setPlatform] = useState(null);
 
   const fetchOffer = async () => {
     try {
       const response = await fetch(`/api/v1/games/${productId}`);
       if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`;
-        throw new Error(errorMessage);
+        throw new Error(`${response.status} (${response.statusText})`);
       }
       const data = await response.json();
-      const product = data.game.products.find((p) => p.id === productId);
+      const product = data.game.products.find((product) => product.id === productId);
       setOffer(product.offers[0]);
+      fetchPlatform(product.platformId);
+    } catch (error) {
+      console.error(`Error in fetch: ${error.message}`);
+    }
+  };
+
+  const fetchPlatform = async (platformId) => {
+    try {
+      const response = await fetch(`/api/v1/platforms/${platformId}`);
+      if (!response.ok) {
+        throw new Error(`${response.status} (${response.statusText})`);
+      }
+      const data = await response.json();
+      setPlatform(data.platform.name); 
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`);
     }
@@ -22,19 +36,22 @@ const OfferTile = ({ productId }) => {
     fetchOffer();
   }, []);
 
-  return (
-    <div className="offer-tile">
-      {offer ? (
+  const renderOffer = () => {
+    if (offer) {
+      return (
         <div>
-          <p>Price: {offer.price}</p>
-          <p>Start: {offer.start}</p>
-          <p>End: {offer.end}</p>
+          <p>Platform: {platform}</p>
+          <p>Price: ${offer.price}</p>
+          <p>Start Date: {offer.start}</p>
+          <p>End Date: {offer.end}</p>
         </div>
-      ) : (
-        <p>No offer available for this product.</p>
-      )}
-    </div>
-  );
+      );
+    } else {
+      return <p>No offers are currently available for this product.</p>;
+    }
+  };
+
+  return <div className="offer-tile">{renderOffer()}</div>;
 };
 
 export default OfferTile;

@@ -1,80 +1,107 @@
 import React, { useState } from "react";
 
 const OfferFormTile = ({ platform, addOffer }) => {
-  const [platformName, setPlatformName] = useState("");
-  const [price, setPrice] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-
-  const handleSubmit = (event) => {
+  const [formData, setFormData] = useState({
+    platformName: "",
+    price: "",
+    startDate: "",
+    endDate: ""
+  });
+  
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // Validate form data
+    const { platformName, price, startDate, endDate } = formData;
     if (!platformName || !price || !startDate || !endDate) {
-      alert("Please fill in all fields.");
+      console.error("Please fill in all fields.");
       return;
     }
-
-    // Create the offer object
     const offerData = {
       platformName,
       price: parseFloat(price),
       start: startDate,
-      end: endDate,
+      end: endDate
     };
-
-    // Pass the offer data to the parent component
-    addOffer(offerData);
-
-    // Clear the form inputs
-    setPlatformName("");
-    setPrice("");
-    setStartDate("");
-    setEndDate("");
+    try {
+      const response = await fetch("/api/v1/games/:id", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(offerData)
+      });
+      if (!response.ok) {
+        throw new Error(`${response.status} (${response.statusText})`);
+      }
+      setFormData({
+        platformName: "",
+        price: "",
+        startDate: "",
+        endDate: ""
+      });
+      addOffer(offerData);
+      console.log("Offer added successfully.");
+    } catch (error) {
+      console.error(`Error adding offer: ${error.message}`);
+    }
   };
-
   return (
     <div className="offer-form">
       <h3>Add Offer</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <div>
-            <label htmlFor="platformName">Platform Name:</label>
-            <input
-              type="text"
-              id="platformName"
-              value={platformName}
-              onChange={(e) => setPlatformName(e.target.value)}
-            />
+            <label>
+              Platform Name:
+              <input
+                type="text"
+                name="platformName"
+                value={formData.platformName}
+                onChange={handleChange}
+              />
+            </label>
           </div>
           <div>
-            <label htmlFor="startDate">Start Date:</label>
-            <input
-              type="date"
-              id="startDate"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-            />
+            <label>
+              Start Date:
+              <input
+                type="date"
+                name="startDate"
+                value={formData.startDate}
+                onChange={handleChange}
+              />
+            </label>
           </div>
         </div>
         <div className="form-row">
           <div>
-            <label htmlFor="price">Price:</label>
-            <input
-              type="number"
-              id="price"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
+            <label>
+              Price:
+              <input
+                type="text"
+                name="price"
+                value={formData.price}
+                onChange={handleChange}
+                inputMode="numeric"
+              />
+            </label>
           </div>
           <div>
-            <label htmlFor="endDate">End Date:</label>
-            <input
-              type="date"
-              id="endDate"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-            />
+            <label>
+              End Date:
+              <input
+                type="date"
+                name="endDate"
+                value={formData.endDate}
+                onChange={handleChange}
+              />
+            </label>
           </div>
         </div>
         <div className="form-row">
