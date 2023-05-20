@@ -38,29 +38,30 @@ const GameShow = (props) => {
   };
 
   return (
-    <div className="game-container">
-      <div className="game-image">
-        <img src={game.image} alt="Game Image" />
-      </div>
-      <div className="game-details">
-        <h1>{game.name}</h1>
-        <p><strong>Developer:</strong> {game.developer}</p>
-        <p><strong>Publisher:</strong> {game.publisher}</p>
-      </div>
-      <div className="offers-container">
-        <br />
-        <br />
-        <h2>Product Offers</h2>
-        {game.products && game.products.length > 0 ? (
-          game.products.map((product) => (
-            <OfferTile key={product.id} productId={product.id} />
-          ))
-        ) : (
-          <p>No offers are currently available for this game.</p>
-        )}
-        <OfferFormTile platform={game.platform} addOffer={addOffer} />
-      </div>
+<div>
+  <div className="game-image">
+    <img src={game.image} alt="Game Image" />
+  </div>
+  <div className="game-details-container">
+    <div className="game-details">
+      <h1 className="game-name">{game.name}</h1>
+      <p className="game-developer"><strong>Developer:</strong> {game.developer}</p>
+      <p className="game-publisher"><strong>Publisher:</strong> {game.publisher}</p>
     </div>
+    <div className="offers-container">
+      <h2 className="offers-heading">Product Offers</h2>
+      {game.products && game.products.length > 0 ? (
+        game.products.map((product) => (
+          <OfferTile key={product.id} productId={product.id} />
+        ))
+      ) : (
+        <p className="no-offers-text">No offers are currently available for this game.</p>
+      )}
+      <OfferFormTile platform={game.platform} addOffer={addOffer} />
+    </div>
+  </div>
+</div>
+
   );
 };
 
