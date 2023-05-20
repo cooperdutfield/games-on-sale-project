@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
+const getNiceDate = (timeStamp) => {
+  const dateNormalized = new Date(timeStamp);
+  const monthDay = dateNormalized.toLocaleString('en', {
+    month: 'long',
+    day: 'numeric',
+  });
+
+  return monthDay;
+};
+
 const OfferTile = ({ productId }) => {
-  const [offer, setOffer] = useState(null);
-  const [platform, setPlatform] = useState(null);
+  const [offer, setOffer] = useState();
+  const [platform, setPlatform] = useState();
 
   const fetchOffer = async () => {
     try {
@@ -13,20 +23,8 @@ const OfferTile = ({ productId }) => {
       const data = await response.json();
       const product = data.game.products.find((product) => product.id === productId);
       setOffer(product.offers[0]);
-      fetchPlatform(product.platformId);
-    } catch (error) {
-      console.error(`Error in fetch: ${error.message}`);
-    }
-  };
-
-  const fetchPlatform = async (platformId) => {
-    try {
-      const response = await fetch(`/api/v1/platforms/${platformId}`);
-      if (!response.ok) {
-        throw new Error(`${response.status} (${response.statusText})`);
-      }
-      const data = await response.json();
-      setPlatform(data.platform.name); 
+      setPlatform(product.platform);
+      console.log('platform:', product.platform);
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`);
     }
@@ -37,13 +35,16 @@ const OfferTile = ({ productId }) => {
   }, []);
 
   const renderOffer = () => {
-    if (offer) {
+    if (offer && platform) {
+      const niceStartDate = getNiceDate(offer.start);
+      const niceEndDate = getNiceDate(offer.end);
+
       return (
         <div>
-          <p>Platform: {platform}</p>
+          <p>Platform: {platform.name}</p>
           <p>Price: ${offer.price}</p>
-          <p>Start Date: {offer.start}</p>
-          <p>End Date: {offer.end}</p>
+          <p>Start Date: {niceStartDate}</p>
+          <p>End Date: {niceEndDate}</p>
         </div>
       );
     } else {

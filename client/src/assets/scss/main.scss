@@ -3,6 +3,38 @@
 @include foundation-everything;
 // place global css here
 
+.game-image-container {
+  flex: 0 0 auto;
+  width: 400px; /* Adjust the width as needed */
+  height: auto;
+  border: 2px solid #000;
+  margin-right: 40px;
+  padding: 20px;
+}
+
+.game-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-details-container {
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.offers-container {
+  margin-top: 20px;
+}
+
+
+.offers-container {
+  margin-top: 20px;
+  width: 60%;
+}
+
+
 .form-row {
   display: flex;
   gap: 10px;
@@ -200,7 +232,8 @@
   text-align: center;
 }
 body {
-  background-image: linear-gradient(gray, black);
+  // background-image: linear-gradient(gray, black);
+  background-color: #393E41;
   -ms-overflow-style: none; 
   scrollbar-width: none; 
   overflow-y: scroll; 
@@ -218,7 +251,7 @@ body::-webkit-scrollbar {
   }
 }
 .top-bar-text {
-  color:white;
+  color:#E94F37;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 20px;
 }
