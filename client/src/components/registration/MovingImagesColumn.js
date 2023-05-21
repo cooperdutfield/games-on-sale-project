@@ -36,7 +36,17 @@ const MovingImagesColumn = () => {
         <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/322330/header_alt_assets_37.jpg?t=1682615247)" }}></div>
         <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1158310/header.jpg?t=1683820745)" }}></div>
         <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1088850/header.jpg?t=1677000792)" }}></div>
-        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1687950/header.jpg?t=1679398700)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1556790/header_alt_assets_2.jpg?t=1684355290)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1390190/header.jpg?t=1681248202)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/346010/header.jpg?t=1661441186)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/673750/header.jpg?t=1684270840)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1604030/header_alt_assets_2.jpg?t=1684394834)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/255710/header.jpg?t=1683626322)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1238040/header.jpg?t=1671830944)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1286680/header.jpg?t=1682006912)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1237970/header.jpg?t=1668565264)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1902490/header.jpg?t=1646262842)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/890550/header.jpg?t=1681552717)" }}></div>
         </div> 
         <div className="moving-images-row">
         <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg?t=1650554420)" }}></div>
@@ -50,6 +60,16 @@ const MovingImagesColumn = () => {
         <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/867210/header_alt_assets_1.jpg?t=1683725305)" }}></div>
         <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1237970/header.jpg?t=1668565264)" }}></div>
         <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/668580/header.jpg?t=1681313223)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1947500/header.jpg?t=1680115970)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/2153780/header.jpg?t=1681372235)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1783280/header.jpg?t=1684472751)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/2005010/header.jpg?t=1684504871)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1616110/header.jpg?t=1683706329)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1062810/header.jpg?t=1684537175)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/342180/header.jpg?t=1667208391)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/751630/header.jpg?t=1678710840)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1408230/header.jpg?t=1680576732)" }}></div>
+        <div className="moving-image" style={{ backgroundImage: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/1533390/header.jpg?t=1673750290)" }}></div>
      </div>
    </div>
     );
