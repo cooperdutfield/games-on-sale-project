@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import ErrorList from "../layout/ErrorList"
 import FormError from "../layout/FormError";
 import config from "../../config";
+import translateServerErrors from "../../services/translateServerErrors";
 
 const RegistrationForm = () => {
   const [userPayload, setUserPayload] = useState({
@@ -10,13 +12,14 @@ const RegistrationForm = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [serverErrors, setServerErrors] = useState({});
 
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
   const validateInput = (payload) => {
     setErrors({});
     const { email, password, passwordConfirmation } = payload;
-    const emailRegexp = config.validation.email.regexp;
+    const emailRegexp = config.validation.email.regexp.emailRegex;
     let newErrors = {};
 
     if (!email.match(emailRegexp)) {
@@ -67,6 +70,11 @@ const RegistrationForm = () => {
             }),
           });
           if (!response.ok) {
+            if (response.status === 422) {
+              const errorBody = await response.json()
+              const newServerErrors = translateServerErrors(errorBody.errors)
+              setServerErrors(newServerErrors)
+            }
             const errorMessage = `${response.status} (${response.statusText})`;
             const error = new Error(errorMessage);
             throw error;
@@ -93,17 +101,18 @@ const RegistrationForm = () => {
 
   return (
     <div className="grid-container">
-      <h1>Register</h1>
+      <h1 className="sign-in-top-text">Register now</h1>
+      <ErrorList errors={serverErrors} />
       <form onSubmit={onSubmit}>
         <div>
-          <label>
+          <label className="sign-in-bar-text">
             Email
             <input type="text" name="email" value={userPayload.email} onChange={onInputChange} />
             <FormError error={errors.email} />
           </label>
         </div>
         <div>
-          <label>
+          <label className="sign-in-bar-text">
             Password
             <input
               type="password"
@@ -115,7 +124,7 @@ const RegistrationForm = () => {
           </label>
         </div>
         <div>
-          <label>
+          <label className="sign-in-bar-text">
             Password Confirmation
             <input
               type="password"

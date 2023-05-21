@@ -15,8 +15,9 @@ return(
   <div className="row-padding container">
     <div className="two-third">
       <h1 className="heading">Our Mission</h1>
-      <h5 className="subheading">We wanted to create an open source environment for gaming consumers to buy games and share deals they find. </h5>
-     <p className="text-grey">It can be hard to know where to buy the games at the best price and for the right platform Games on Sale makes that easier for the user allowing them to have an entire market at their fingertips.</p>
+      <h5 className="subheading">We wanted to create an open source environment for our users to share and vote on the awesome deals they find. <br>
+      
+      </br> The goal behind this project is that not only for users to save money but also to create a community of people looking to help each other out. </h5>
     </div>
   </div>
 </div>

@@ -7,11 +7,12 @@ const SignInForm = () => {
   const [userPayload, setUserPayload] = useState({ email: "", password: "" });
   const [shouldRedirect, setShouldRedirect] = useState(false);
   const [errors, setErrors] = useState({});
+  const [credentialsErrors, setCredentialsErrors] = useState("")
 
   const validateInput = (payload) => {
     setErrors({});
     const { email, password } = payload;
-    const emailRegexp = config.validation.email.regexp;
+    const emailRegexp = config.validation.email.regexp.emailRegex;
     let newErrors = {};
     if (!email.match(emailRegexp)) {
       newErrors = {
@@ -47,6 +48,10 @@ const SignInForm = () => {
             })
           })
           if(!response.ok) {
+            if (response.status === 401) {
+              const serverErrors = await response.json()
+              setCredentialsErrors(serverErrors.message)
+            }
             const errorMessage = `${response.status} (${response.statusText})`
             const error = new Error(errorMessage)
             throw(error)
@@ -71,19 +76,21 @@ const SignInForm = () => {
     location.href = "/";
   }
 
+
   return (
-    <div className="grid-container sign-in-border" onSubmit={onSubmit}>
-      <h1 className="sign-in-top-text" >Welcome back</h1>
-      <form>
+    <div className="grid-container sign-in-border">
+      <h1 className="sign-in-top-text" >Welcome Back</h1>
+      {credentialsErrors ? <p className="callout alert">{credentialsErrors}</p> : null}
+      <form onSubmit={onSubmit}>
         <div>
-          <label>
+          <label className="sign-in-bar-text">
             Email
             <input type="text" name="email" value={userPayload.email} onChange={onInputChange} />
             <FormError error={errors.email} />
           </label>
         </div>
         <div>
-          <label>
+          <label className="sign-in-bar-text">
             Password
             <input
               type="password"
@@ -97,7 +104,7 @@ const SignInForm = () => {
         <div>
           <input type="submit" className="button" value="Sign In" />
         </div>
-        <Link className="" to="/users/new">Don't have an account? Sign up!</Link>
+        <Link className="sign-in-link-text" to="/users/new">Don't have an account? Sign up!</Link>
       </form>
     </div>
   );
