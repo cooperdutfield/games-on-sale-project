@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import OfferTile from "./OfferTile";
 import OfferFormTile from "./OfferFormTile";
 import { parseISO } from 'date-fns'
-// import { getDate } from 'date-fns'
 
 
 const GameShow = (props) => {

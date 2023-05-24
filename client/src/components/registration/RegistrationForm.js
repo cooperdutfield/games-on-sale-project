@@ -101,7 +101,7 @@ const RegistrationForm = () => {
 
   return (
     <div className="grid-container">
-      <h1 className="sign-in-top-text">Register now</h1>
+      <h1 className="sign-in-top-text">Create an account</h1>
       <ErrorList errors={serverErrors} />
       <form onSubmit={onSubmit}>
         <div>
@@ -136,7 +136,7 @@ const RegistrationForm = () => {
           </label>
         </div>
         <div>
-          <input type="submit" className="button" value="Register" />
+          <input type="submit" className="register-button" value="Register" />
         </div>
       </form>
     </div>

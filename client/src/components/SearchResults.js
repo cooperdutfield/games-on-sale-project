@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const SearchResults = (props) => {
   if (!props.gameResults || props.gameResults.length === 0) {
-    return <p>No games found</p>;
   }
 
   return (
