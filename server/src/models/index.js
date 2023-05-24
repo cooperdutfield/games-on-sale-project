@@ -4,4 +4,5 @@ const Game = require("./Game.js")
 const Platform = require("./Platform.js")
 const Product = require("./Product.js")
 const Offer = require("./Offer.js")
-module.exports = {User, Game, Platform, Product, Offer};
+const Vote = require("./Vote.js")
+module.exports = {User, Game, Platform, Product, Offer, Vote};
