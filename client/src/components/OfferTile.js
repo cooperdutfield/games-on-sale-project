@@ -24,7 +24,6 @@ const OfferTile = ({ productId }) => {
       const product = data.game.products.find((product) => product.id === productId);
       setOffer(product.offers[0]);
       setPlatform(product.platform);
-      console.log('platform:', product.platform);
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`);
     }

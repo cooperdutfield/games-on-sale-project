@@ -7,7 +7,9 @@ const OfferFormTile = ({ platform, addOffer }) => {
     startDate: "",
     endDate: ""
   });
-  
+
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -15,21 +17,22 @@ const OfferFormTile = ({ platform, addOffer }) => {
       [name]: value
     }));
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { platformName, price, startDate, endDate } = formData;
     if (!platformName || !price || !startDate || !endDate) {
-      console.error("Please fill in all fields.");
+      setErrorMessage("Please fill in all fields.");
       return;
     }
     const offerData = {
       platformName,
       price: parseFloat(price),
-      start: startDate,
-      end: endDate
+      startDate,
+      endDate
     };
     try {
-      const response = await fetch("/api/v1/games/:id", {
+      const response = await fetch(`/api/v1/games/${platform.id}/offers`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -46,14 +49,17 @@ const OfferFormTile = ({ platform, addOffer }) => {
         endDate: ""
       });
       addOffer(offerData);
-      console.log("Offer added successfully.");
+      setErrorMessage("");
     } catch (error) {
       console.error(`Error adding offer: ${error.message}`);
+      setErrorMessage("An error occurred while adding the offer.");
     }
   };
+
   return (
     <div className="offer-form">
       <h3>Add Offer</h3>
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <div>

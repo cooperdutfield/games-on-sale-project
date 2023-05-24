@@ -92,7 +92,7 @@ const SignInForm = () => {
         <div>
           <label className="sign-in-bar-text">
             Password
-            <input
+            <input 
               type="password"
               name="password"
               value={userPayload.password}
@@ -102,7 +102,7 @@ const SignInForm = () => {
           </label>
         </div>
         <div>
-          <input type="submit" className="button" value="Sign In" />
+          <input type="submit" className="user-buttons" value="Sign In" />
         </div>
         <Link className="sign-in-link-text" to="/users/new">Don't have an account? Sign up!</Link>
       </form>

@@ -3,6 +3,64 @@
 @include foundation-everything;
 // place global css here
 
+.register-button{
+  background-color: #E94F37;
+  color: black;
+  width: 65%;
+  border-radius: 5px;
+  border-color: #100e0e;
+  border-width: 1px;
+  width: 175px;
+  height: 45px;
+  margin-left: 500px;
+}
+.user-buttons {
+  background-color: #E94F37;
+  color: black;
+  width: 65%;
+  border-radius: 5px;
+  border-color: #100e0e;
+  border-width: 1px;
+  width: 175px;
+  height: 45px;
+  margin-left: 320px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  color: #E94F37;
+  border: 1px solid black;
+  border-radius: 2px; /* Adjust the border radius */
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: black;
+}
+
+.form {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 8px; /* Increase the padding */
+  background-color: lightgray;
+}
+
+.submit-button {
+  width: 100%;
+  background-color: #E94F37;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .game-image-container {
   flex: 0 0 auto;
   width: 400px; /* Adjust the width as needed */
@@ -245,7 +303,6 @@
   color: #F6F7EB;
 }
 body {
-  // background-image: linear-gradient(gray, black);
   background-color: #393E41;
   -ms-overflow-style: none; 
   scrollbar-width: none; 

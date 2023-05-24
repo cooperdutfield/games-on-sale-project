@@ -12,17 +12,14 @@ const SearchPage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted!");
-  
-    let query = searchTerm.trim(); 
-  
+
+    let query = searchTerm.trim();
+
     if (query === "") {
       alert("Please enter a search term");
       return;
     }
-  
-    console.log(`Search term: ${query}`);
-    console.log(`API URL: https://rawg.io/api/games/${query}`);
-  
+    
     setGameResults([]);
     fetch(`https://rawg.io/api/games/${query}`)
       .then((resp) => {
@@ -32,11 +29,10 @@ const SearchPage = () => {
         return resp.json();
       })
       .then((data) => {
-        console.log("API Response:", data);
         if (data === undefined || data.detail === "Not found.") {
           alert("No game found");
         } else {
-          setGameResults([data]); 
+          setGameResults([data]);
         }
       })
       .catch((error) => {
@@ -44,19 +40,18 @@ const SearchPage = () => {
       });
     setSearchTerm("");
   };
-  
 
   return (
     <div>
-      <h1>Game Search</h1>
-      <form onSubmit={onSubmit}>
-        <input type="text" value={searchTerm} onChange={handleChange} />
-        <br></br>
-        <input type="submit" />
-      </form>
-      <SearchResults gameResults={gameResults} />
-    </div>
-  );
+    <h1 className="title">Game Search</h1>
+    <form onSubmit={onSubmit} className="form">
+      <input type="text" value={searchTerm} onChange={handleChange} className="search-input" />
+      <br />
+      <input type="submit" value="Search" className="submit-button" />
+    </form>
+    <SearchResults gameResults={gameResults} />
+  </div>
+);
 };
 
 export default SearchPage;
