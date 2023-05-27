@@ -56,7 +56,7 @@ const GameShow = (props) => {
       ) : (
         <p className="no-offers-text">No offers are currently available for this game.</p>
       )}
-      <OfferFormTile platform={game.platform} addOffer={addOffer} />
+      <OfferFormTile platform={game.platform} addOffer={addOffer} gameId={gameId} />
     </div>
   </div>
 </div>

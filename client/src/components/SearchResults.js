@@ -1,25 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SearchResults = (props) => {
-  if (!props.gameResults || props.gameResults.length === 0) {
+const SearchResults = ({ gameResults }) => {
+  if (!gameResults || gameResults.length === 0) {
+    return <div>No game found.</div>;
   }
 
   return (
     <div>
       <ul>
-        {props.gameResults.map((game) => (
+        {gameResults.map((game) => (
           <li key={game.id}>
             <Link
               to={{
-                pathname: `/game/${game.id}`,
-                gameProps: {
+                pathname: `/games/${game.id}`,
+                state: {
                   game: game,
                 },
               }}
             >
               <h3>{game.name}</h3>
-              <img src={game.background_image} alt="game" />
+              <img src={game.image} alt="game" />
             </Link>
           </li>
         ))}
