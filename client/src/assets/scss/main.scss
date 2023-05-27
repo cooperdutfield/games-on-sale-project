@@ -3,6 +3,19 @@
 @include foundation-everything;
 // place global css here
 
+.offer-add-text{
+  color: white;
+}
+
+.offers-heading{
+color: white;
+}
+
+
+.moving-background{
+  background-color: #100e0e;
+}
+
 .register-button{
   background-color: #E94F37;
   color: black;
@@ -257,6 +270,7 @@
 .start-page-container {
   padding: 128px 16px;
   color: white;
+  background-color: #E94F37;
 }
 
 .start-page-heading {
@@ -303,7 +317,7 @@
   color: #F6F7EB;
 }
 body {
-  background-color: #393E41;
+  background-color: #100e0e;
   -ms-overflow-style: none; 
   scrollbar-width: none; 
   overflow-y: scroll; 

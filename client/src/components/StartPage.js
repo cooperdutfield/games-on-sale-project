@@ -10,7 +10,9 @@ return(
     <p className="start-page-subheading">Thousands of titles. Even more deals. All in one place.</p>
   </header>
 
+<div className="moving-background">
   <MovingImagesColumn /> {MovingImagesColumn}
+</div>
 
   <div className="row-padding container">
     <div className="two-third">
