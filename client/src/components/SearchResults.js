@@ -19,7 +19,6 @@ const SearchResults = ({ gameResults }) => {
                 },
               }}
             >
-              <h3>{game.name}</h3>
               <img src={game.image} alt="game" />
             </Link>
           </li>

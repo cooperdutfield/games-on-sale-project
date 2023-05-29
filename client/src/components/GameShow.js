@@ -9,6 +9,8 @@ const GameShow = (props) => {
     name: "",
     developer: "",
     publisher: "",
+    genre:"",
+    tags:"",
     image: "",
   });
   const gameId = props.match.params.id;
@@ -46,6 +48,8 @@ const GameShow = (props) => {
       <h1 className="game-name">{game.name}</h1>
       <p className="game-developer"><strong>Developer:</strong> {game.developer}</p>
       <p className="game-publisher"><strong>Publisher:</strong> {game.publisher}</p>
+      <p className="game-developer"><strong>Genre:</strong> {game.genre}</p>
+      <p className="game-publisher"><strong>Tags:</strong> {game.tags}</p>
     </div>
     <div className="offers-container">
       <h2 className="offers-heading">Product Offers</h2>
