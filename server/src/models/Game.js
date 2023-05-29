@@ -7,11 +7,13 @@ class Game extends Model {
     static get jsonSchema(){
         return {
             type: "object",
-            required: ["name", "developer", "publisher", "image"],
+            required: ["name", "developer", "publisher", "genre", "tags", "image"],
             properties: {
                 name: { type:"string"},
                 developer: {type:"string"},
                 publisher:{type:"string"},
+                genre:{type:"string"},
+                tags:{type:"string"},
                 images:{type:"string"}
             }
         }

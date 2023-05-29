@@ -12,6 +12,7 @@ import GameShow from "./GameShow";
 import GameIndex from "./GameIndex";
 import SearchPage from "./SearchPage";
 import RawgApiTestPage from "./RawgApiTestPage";
+import AddNewGameForm from "./AddNewGameForm";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -39,6 +40,7 @@ const App = (props) => {
         <Route exact path="/games/:id" component={GameShow} />
         <Route exact path="/search" component={SearchPage} />
         <Route exact path="/rawgin" component={RawgApiTestPage} />
+        <Route exact path="/games/add/new-title" component={AddNewGameForm} />
       </Switch>
     </Router>
   );

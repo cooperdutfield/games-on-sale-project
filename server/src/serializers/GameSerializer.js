@@ -1,6 +1,6 @@
 class GameSerializer {
   static async getDetails(game) {
-    const allowedAttributes = ["id", "name", "developer", "publisher", "image"];
+    const allowedAttributes = ["id", "name", "developer", "publisher", "genre", "tags", "image"];
 
     const serializedGame = {};
     allowedAttributes.forEach((attribute) => {
