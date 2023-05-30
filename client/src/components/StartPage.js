@@ -14,12 +14,13 @@ return(
   <MovingImagesColumn /> {MovingImagesColumn}
 </div>
 
-  <div className="row-padding container">
+  <div className="start-bottom-text">
     <div className="two-third">
       <h1 className="heading">Our Mission</h1>
-      <h5 className="subheading">We wanted to create an open source environment for our users to share and vote on the awesome deals they find. <br>
-      
-      </br> The goal behind this project is that not only for users to save money but also to create a community of people looking to help each other out. </h5>
+      <h5 className="subheading start-bottom-text">We wanted to create an open source environment for our users to share and vote on the awesome deals they find. 
+      <br>
+      </br>
+       The goal behind this project is that not only for users to save money but also to create a community of people looking to help each other out. </h5>
     </div>
   </div>
 </div>
