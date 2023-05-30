@@ -124,6 +124,47 @@ class GameSeeder {
             tags: "Turn-Based Tactics, Roguelite, Dark Fantasy, 2D",
             image: "https://cdn.akamai.steamstatic.com/steam/apps/1940340/header.jpg?t=1684783639"
         },
+        {
+            name: "EA SPORTS™ FIFA 23",
+            developer: "EA Canada & EA Romania",
+            publisher: "Electronic Arts",
+            genre: "Simulation, Sports",
+            tags: "Football(Soccer), Sports, Controller eSports",
+            image: "https://cdn.akamai.steamstatic.com/steam/apps/1811260/header.jpg?t=1682117049"
+        },
+        {
+            name: "Atomic Heart",
+            developer: "Mundfish",
+            publisher: "Focus Entertainment, 4Divinity",
+            genre: "Action, Adventure, RPG",
+            tags: "Horror, Sexual Content, Puzzle, Mystery, FPS",
+            image: "https://cdn.akamai.steamstatic.com/steam/apps/668580/header.jpg?t=1684318955"
+
+        },
+        {
+            name: "Silica",
+            developer: "Bohemia Incubator",
+            publisher: "Bohemia Interactive",
+            genre: "Action, Indie, Strategy, Early Access",
+            tags: "Strategy, RTS, Sci-fi, Early Access, Multiplayer",
+            image: "https://cdn.akamai.steamstatic.com/steam/apps/1494420/header.jpg?t=1683293631"
+        },
+        {
+            name: "Besiege",
+            developer: "Spiderling Studios",
+            publisher: "Spiderling Studios",
+            genre: "Indie, Simulation",
+            tags: "Building, Sandbox, Physics, Destruction, Puzzle",
+            image: "https://cdn.akamai.steamstatic.com/steam/apps/346010/header.jpg?t=1661441186"
+        },
+        {
+            name: "Hell Let Loose",
+            developer: "Black Matter Pty Ltd",
+            publisher: "Team17",
+            genre: "Action, Indie, Massively Multiplayer, Simulation, Strategy",
+            tags: "Shooter, FPS, World War II, Multiplayer, Action",
+            image: "https://cdn.akamai.steamstatic.com/steam/apps/686810/header.jpg?t=1685008898"
+        }
 
     ]
     for (const singleGameData of gameData) {
