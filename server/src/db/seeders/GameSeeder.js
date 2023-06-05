@@ -164,6 +164,30 @@ class GameSeeder {
             genre: "Action, Indie, Massively Multiplayer, Simulation, Strategy",
             tags: "Shooter, FPS, World War II, Multiplayer, Action",
             image: "https://cdn.akamai.steamstatic.com/steam/apps/686810/header.jpg?t=1685008898"
+        },
+        {
+            name: "Dying Light 2",
+            developer: "Techland",
+            publisher: "Techland",
+            genre: "Action, Adventure, RPG",
+            tags: "Co-op, Open World, Zombies, Parkour, Horror",
+            image: "https://cdn.akamai.steamstatic.com/steam/apps/534380/header_alt_assets_18.jpg?t=1685542703"
+        },
+        {
+            name: "NBA 2K23",
+            developer: "Visual Concepts",
+            publisher: "2K",
+            genre: "Simulation, Sports",
+            tags: "Immersive Sim, Sports, Basketball, Simulation",
+            image:"https://cdn.akamai.steamstatic.com/steam/apps/1919590/header.jpg?t=1677540477"
+        },
+        {
+            name: "V Rising",
+            developer: "Stunlock Studios",
+            publisher: "Stunlock Studios",
+            genre: "Action, Adventure, Massively Multiplayer, Early Access",
+            tags: "Early Access, Open World, Survival, Vampire",
+            image:"https://cdn.akamai.steamstatic.com/steam/apps/1604030/header_alt_assets_2.jpg?t=1684394834"
         }
 
     ]

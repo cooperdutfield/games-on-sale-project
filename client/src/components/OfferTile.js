@@ -8,12 +8,13 @@ const getNiceDate = (timeStamp) => {
   });
 
   return monthDay;
-};
+};  
 
 const OfferTile = ({ productId }) => {
-  const [offer, setOffer] = useState();
-  const [platform, setPlatform] = useState();
+  const [offer, setOffer] = useState(null);
+  const [platform, setPlatform] = useState(null);
   const [voteTotal, setVoteTotal] = useState(0);
+  const [userVote, setUserVote] = useState(null);
 
   const fetchOffer = async () => {
     try {
@@ -22,7 +23,7 @@ const OfferTile = ({ productId }) => {
         throw new Error(`${response.status} (${response.statusText})`);
       }
       const data = await response.json();
-      const product = data.game.products.find((product) => product.id === productId.toString()); // Convert productId to a string
+      const product = data.game.products.find((product) => product.id === productId.toString());
       setOffer(product.offers[0]);
       setPlatform(product.platform);
 
@@ -44,6 +45,10 @@ const OfferTile = ({ productId }) => {
 
   const handleVote = async (voteType) => {
     try {
+      if (userVote === voteType) {
+        return;
+      }
+
       const productIdInt = parseInt(productId, 10);
       const response = await fetch(`/api/v1/votes`, {
         method: 'POST',
@@ -60,12 +65,17 @@ const OfferTile = ({ productId }) => {
         throw new Error(`${response.status} (${response.statusText})`);
       }
 
-      const newVoteTotal = voteTotal + voteType;
-      console.log('Current voteTotal:', voteTotal);
-      console.log('voteType:', voteType);
-      console.log('New voteTotal:', newVoteTotal);
+      let newVoteTotal = voteTotal;
+      if (userVote === null) {
+        newVoteTotal += voteType;
+      } else {
+        newVoteTotal += voteType * 2;
+      }
+
+      const newUserVote = voteType;
 
       setVoteTotal(newVoteTotal);
+      setUserVote(newUserVote);
     } catch (error) {
       console.error(`Error in vote: ${error.message}`);
     }
@@ -75,6 +85,7 @@ const OfferTile = ({ productId }) => {
     if (offer && platform) {
       const niceStartDate = getNiceDate(offer.start);
       const niceEndDate = getNiceDate(offer.end);
+      const hasVoted = userVote !== null;
 
       return (
         <div>
@@ -83,9 +94,13 @@ const OfferTile = ({ productId }) => {
           <p>Start Date: {niceStartDate}</p>
           <p>End Date: {niceEndDate}</p>
           <p>Vote Total: {voteTotal}</p>
-          <button onClick={() => handleVote(1)}>Upvote</button>
+          <button onClick={() => handleVote(1)} disabled={hasVoted && userVote === 1} style={{ cursor: hasVoted && userVote === 1 ? 'not-allowed' : 'pointer' }}>
+            Upvote
+          </button>
           <br></br>
-          <button onClick={() => handleVote(-1)}>Downvote</button>
+          <button onClick={() => handleVote(-1)} disabled={hasVoted && userVote === -1} style={{ cursor: hasVoted && userVote === -1 ? 'not-allowed' : 'pointer' }}>
+            Downvote
+          </button>
         </div>
       );
     } else {
@@ -93,7 +108,12 @@ const OfferTile = ({ productId }) => {
     }
   };
 
-  return <div className="offer-tile">{renderOffer()}</div>;
+  return (
+    <div className="offer-tile">
+      <h3>Current Offer</h3>
+      {renderOffer()}
+    </div>
+  );
 };
 
 export default OfferTile;
