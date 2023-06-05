@@ -3,6 +3,10 @@
 @include foundation-everything;
 // place global css here
 
+.text-show-color{
+  color: white;
+}
+
 .start-bottom-text{
   background-color: #E94F37;
   color: #f5f5f5
@@ -295,7 +299,7 @@ color: white;
   font-family: "Motiva Sans", Arial, Helvetica, sans-serif;;
 }
 .sign-in-border {
-  border: 2px solid black;
+  border: 2px solid #100e0e;
   width: 60%;
   padding-top: 50px;
   font-family: Montserrat, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;

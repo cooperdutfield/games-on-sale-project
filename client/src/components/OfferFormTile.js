@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-const OfferFormTile = ({ platform, addOffer, gameId }) => {
-
+const OfferFormTile = ({ platform, addOffer }) => {
   const [formData, setFormData] = useState({
     platformName: "",
     price: "",
@@ -21,13 +20,12 @@ const OfferFormTile = ({ platform, addOffer, gameId }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { price, startDate, endDate, platformName } = formData;
+    const { platformName, price, startDate, endDate } = formData;
     if (!platformName || !price || !startDate || !endDate) {
       setErrorMessage("Please fill in all fields.");
       return;
     }
     const offerData = {
-      gameId,
       platformName,
       price: parseFloat(price),
       startDate,
@@ -65,7 +63,7 @@ const OfferFormTile = ({ platform, addOffer, gameId }) => {
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <div>
-            <label className="offer-add-text">
+            <label>
               Platform Name:
               <input
                 type="text"
@@ -76,7 +74,7 @@ const OfferFormTile = ({ platform, addOffer, gameId }) => {
             </label>
           </div>
           <div>
-            <label className="offer-add-text">
+            <label>
               Start Date:
               <input
                 type="date"
@@ -89,7 +87,7 @@ const OfferFormTile = ({ platform, addOffer, gameId }) => {
         </div>
         <div className="form-row">
           <div>
-            <label className="offer-add-text">
+            <label>
               Price:
               <input
                 type="text"
@@ -101,7 +99,7 @@ const OfferFormTile = ({ platform, addOffer, gameId }) => {
             </label>
           </div>
           <div>
-            <label className="offer-add-text">
+            <label>
               End Date:
               <input
                 type="date"
