@@ -25,7 +25,10 @@ const TopBar = ({ user }) => {
           <Link className="top-bar-text menu-nav-format" to="/" >Games On Sale</Link>
           </li>
           <li>
-            <Link className="top-bar-text app-name-text games-on-sale-text" to="/games">See Our Collection </Link>
+            <Link className="top-bar-text app-name-text games-on-sale-text" to="/games">See Our Collection</Link>
+          </li>
+          <li>
+            <Link className="top-bar-text app-name-text games-on-sale-text" to="/games/add/new-title">Add a Title</Link>
           </li>
           <li>
             <Link className="top-bar-text app-name-text games-on-sale-text" to="/search"> Search </Link>

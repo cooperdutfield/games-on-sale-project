@@ -188,6 +188,30 @@ class GameSeeder {
             genre: "Action, Adventure, Massively Multiplayer, Early Access",
             tags: "Early Access, Open World, Survival, Vampire",
             image:"https://cdn.akamai.steamstatic.com/steam/apps/1604030/header_alt_assets_2.jpg?t=1684394834"
+        },
+        {
+            name: "Titanfall 2",
+            developer: "Respawn Entertainment",
+            publisher: "Electronic Arts",
+            genre: "Action",
+            tags: "FPS, Multiplayer, Mechs, Shooter, Action",
+            image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1237970/header.jpg?t=1668565264"
+        },
+        {
+            name: "Songs of Conquest",
+            developer: "Lavapotion",
+            publisher: "Coffee Stain Publishing",
+            genre: "Adventure, Strategy, Early Access",
+            tags: "Early Access, Strategy, Turn-Based Strategy, PvP",
+            image:"https://cdn.cloudflare.steamstatic.com/steam/apps/867210/header.jpg?t=1683725305"
+        },
+        {
+            name: "Cities: Skylines",
+            developer: "Colossal Order Ltd.",
+            publisher: "Paradox Interactive",
+            genre: "Simulation, Strategy",
+            tags: "City Builder, Simulation, Building, Management",
+            image: "https://cdn.cloudflare.steamstatic.com/steam/apps/255710/header.jpg?t=1683626322"
         }
 
     ]

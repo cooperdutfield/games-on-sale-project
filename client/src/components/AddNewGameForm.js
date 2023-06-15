@@ -47,30 +47,24 @@ const AddNewGameForm = (props) => {
   
   return (
     <div className="offer-form">
-      <h3>Add Offer</h3>
+      <h3 className="title" >Add a Title</h3>
       <form onSubmit={handleFormSubmit}>
-        <div className="form-row">
+        <div>
           <div>
-            <label className="offer-add-text">
-              Game Name:
+            <label>
               <input
                 type="text"
                 name="gameName"
                 value={gameName}
                 onChange={(e) => setGameName(e.target.value)}
+                className="search-input"
               />
             </label>
           </div>
         </div>
-        <button type="submit">Submit</button>
+        <input type="submit" value="Submit" className="submit-button" />
       </form>
       <div>
-        <h4>Game Details:</h4>
-        <p>Genre: {genre}</p>
-        <p>Tags: {tags}</p>
-        <p>Developer: {developer}</p>
-        <p>Publisher: {publisher}</p>
-        <p>Image URL: {imageUrl}</p>
       </div>
     </div>
   );

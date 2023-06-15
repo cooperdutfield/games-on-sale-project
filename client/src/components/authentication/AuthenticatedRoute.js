@@ -10,9 +10,7 @@ const AuthenticationCheck = ({ component: Component, user }) => {
   }
   return <Redirect to="/user-sessions/new" />;
 };
-
 const AuthenticatedRoute = ({ component, user, ...rest }) => {
-
   return (
     <Route
      
