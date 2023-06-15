@@ -13,14 +13,10 @@ return(
 <div className="moving-background">
   <MovingImagesColumn /> {MovingImagesColumn}
 </div>
-
   <div className="start-bottom-text">
     <div className="two-third">
-      <h1 className="heading">Our Mission</h1>
-      <h5 className="subheading start-bottom-text">We wanted to create an open source environment for our users to share and vote on the awesome deals they find. 
-      <br>
-      </br>
-       The goal behind this project is that not only for users to save money but also to create a community of people looking to help each other out. </h5>
+      <h1 className="heading start-bottom-title-text">Our Mission</h1>
+      <h5 className="subheading start-bottom-text start-center-text">We're building an open-source platform where users can upload and discover fantastic game deals. Our goal is to create a vibrant community where users can easily share and find great offers. Through upvoting and downvoting, we ensure that the best deals rise to the top. Join us in this thrilling journey as we reshape the gaming landscape, one deal at a time.</h5>
     </div>
   </div>
 </div>

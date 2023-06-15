@@ -76,7 +76,6 @@ const SignInForm = () => {
     location.href = "/";
   }
 
-
   return (
     <div className="grid-container sign-in-border">
       <h1 className="sign-in-top-text" >Welcome Back</h1>
